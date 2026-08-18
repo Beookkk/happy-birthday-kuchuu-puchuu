@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Kuchuu Puchuuu ❤️</title>
+<meta name="description" content="A little birthday surprise made with love.">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #fff;
+    background:
+      linear-gradient(rgba(17, 5, 22, .72), rgba(20, 5, 27, .84)),
+      url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAxL3Jhd3BpeGVsbG9mZmljZTFfcGV0YWxfcGF0dGVybl9ib2tlaF9lZmZlY3RfYmFja2dyb3VuZF9faW5fdGhlX19kYjVlZmM2MC04MmM4LTQyNWItYjYyMi0xYWM1MDU2MDMxMTJfMS5qcGc.jpg') center center / cover fixed no-repeat,
+      linear-gradient(135deg, #16051f, #3a1237 55%, #100615);
+    overflow-x: hidden;
+  }  body::before {
+    content: "";
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,.55) 1px, transparent 1.5px),
+      radial-gradient(circle, rgba(255,170,210,.35) 1px, transparent 1.5px);
+    background-size: 90px 90px, 140px 140px;
+    background-position: 10px 20px, 50px 80px;
+    opacity: .35;
+  }
+  .screen {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+  }
+  .hero { text-align: center; max-width: 900px; }
+  .small { letter-spacing: 4px; text-transform: uppercase; font-size: 12px; opacity: .8; }
+  h1 {
+    font-size: clamp(48px, 10vw, 100px);
+    line-height: .95;
+    margin: 20px 0 12px;
+    background: linear-gradient(90deg, #fff, #ffd0e8, #ff8fc7, #fff);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 0 0 35px rgba(255,120,190,.25);
+  }
+  .subtitle { font-size: clamp(18px, 3vw, 27px); color: #ffd7ea; }
+  .date { margin-top: 18px; font-size: 16px; letter-spacing: 3px; }
+  button, .btn {
+    border: 0; cursor: pointer; text-decoration: none; display: inline-block;
+    margin-top: 28px; padding: 15px 27px; border-radius: 999px;
+    color: #351126; background: linear-gradient(135deg, #fff, #ffc0df);
+    font-weight: bold; font-size: 16px;
+    box-shadow: 0 10px 35px rgba(255,95,175,.25);
+    transition: transform .25s, box-shadow .25s;
+  }
+  button:hover, .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 45px rgba(255,95,175,.4); }
+  section { position: relative; z-index: 1; padding: 90px 18px; }
+  .wrap { max-width: 1050px; margin: auto; }
+  .section-title { text-align:center; font-size: clamp(32px, 6vw, 55px); margin: 0 0 18px; }
+  .section-lead { text-align:center; color:#ffd7e9; max-width:720px; margin:0 auto 45px; font-size:18px; line-height:1.7; }
+  .message {
+    max-width: 820px; margin:auto; padding: 38px; border-radius: 28px;
+    background: rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(12px); box-shadow: 0 25px 70px rgba(0,0,0,.25);
+    line-height:1.9; font-size:18px; color:#ffeaf4;
+  }
+  .message p { margin: 0 0 18px; }
+  .message p:last-child { margin-bottom:0; }
+  .gallery {
+    display:grid; grid-template-columns:repeat(12, 1fr); gap:16px;
+  }
+  .photo {
+    position:relative; overflow:hidden; border-radius:24px; min-height:300px;
+    background:#24101d; border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 18px 50px rgba(0,0,0,.3);
+  }
+  .photo:nth-child(1), .photo:nth-child(4) { grid-column:span 7; }
+  .photo:nth-child(2), .photo:nth-child(3), .photo:nth-child(5), .photo:nth-child(6) { grid-column:span 5; }
+  .photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .7s; }
+  .photo:hover img { transform:scale(1.06); }
+  .photo::after {
+    content:"♥"; position:absolute; right:16px; bottom:12px; font-size:20px;
+    color:#fff; text-shadow:0 2px 15px #000; opacity:.8;
+  }
+  .quote-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .quote {
+    padding:28px; min-height:180px; border-radius:24px;
+    background:rgba(255,255,255,.065); border:1px solid rgba(255,255,255,.12);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:21px; line-height:1.5; color:#ffe8f3;
+  }
+  .surprise {
+    text-align:center; padding:55px 25px; border-radius:32px;
+    background:linear-gradient(135deg, rgba(255,115,180,.16), rgba(255,255,255,.06));
+    border:1px solid rgba(255,255,255,.15);
+  }
+  .secret {
+    max-width:760px; margin:25px auto 0; padding:0 25px;
+    max-height:0; overflow:hidden; opacity:0; transition:max-height 1s ease, opacity .8s ease, padding .8s ease;
+  }
+  .secret.open { max-height:900px; opacity:1; padding:25px; }
+  .secret p { font-size:20px; line-height:1.9; color:#ffe6f1; }
+  footer { position:relative; z-index:1; text-align:center; padding:50px 18px 80px; color:#dcb5c8; }
+  .heart { position:fixed; bottom:-40px; z-index:5; pointer-events:none; animation:floatUp linear forwards; opacity:.7; }
+  @keyframes floatUp {
+    from { transform:translateY(0) rotate(0deg); opacity:0; }
+    15% { opacity:.8; }
+    to { transform:translateY(-110vh) rotate(360deg); opacity:0; }
+  }
+  #playerWrap {
+    position:fixed; right:18px; bottom:18px; z-index:20;
+    width:330px; max-width:calc(100vw - 36px);
+    background:rgba(24,8,20,.9); border:1px solid rgba(255,255,255,.16);
+    border-radius:18px; padding:10px; backdrop-filter:blur(14px);
+    box-shadow:0 15px 50px rgba(0,0,0,.35);
+  }
+  #player { width:100%; height:170px; border:0; border-radius:12px; display:block; }
+  .music-label { font-size:12px; margin:5px 4px 2px; color:#ffd4e7; }
+  .music-note { float:right; }
+
+  .garden-glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.035),transparent 45%)}
+  .moon{position:fixed;width:115px;height:115px;border-radius:50%;right:7vw;top:7vh;z-index:0;pointer-events:none;background:radial-gradient(circle at 35% 35%,#fffdf0,#ffe9b8 58%,rgba(255,230,180,.15) 70%,transparent 72%);box-shadow:0 0 55px rgba(255,225,170,.28);opacity:.82}
+  .petal{position:fixed;top:-40px;z-index:6;pointer-events:none;width:13px;height:20px;border-radius:80% 20% 80% 20%;background:linear-gradient(135deg,#ffd2e5,#ff82b6);box-shadow:0 0 12px rgba(255,150,200,.25);animation:petalFall linear forwards}
+  @keyframes petalFall{0%{transform:translate3d(0,-40px,0) rotate(0);opacity:0}10%{opacity:.9}50%{transform:translate3d(70px,50vh,0) rotate(240deg)}100%{transform:translate3d(-80px,110vh,0) rotate(600deg);opacity:0}}
+  .sparkle{position:fixed;z-index:4;pointer-events:none;color:#fff3c4;text-shadow:0 0 12px #fff,0 0 22px #ffc1df;animation:sparklePulse 2.2s ease-in-out infinite}
+  @keyframes sparklePulse{0%,100%{opacity:.15;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(20deg)}}
+  .flower-corner{position:absolute;font-size:48px;opacity:.7;filter:drop-shadow(0 0 14px rgba(255,170,210,.3));animation:flowerFloat 4s ease-in-out infinite}
+  .flower-left{left:3%;bottom:6%}.flower-right{right:3%;top:8%;animation-delay:1.2s}
+  @keyframes flowerFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(5deg)}}
+  .wish-card{margin:30px auto 0;max-width:700px;text-align:center;padding:22px 26px;border-radius:22px;background:rgba(255,255,255,.055);border:1px solid rgba(255,220,235,.15);color:#ffe9f3;font-size:18px;line-height:1.7}
+  .timeline{max-width:800px;margin:45px auto 0;display:grid;gap:14px}
+  .timeline div{padding:18px 22px;border-left:3px solid #ff9bc8;background:rgba(255,255,255,.045);border-radius:0 18px 18px 0;color:#ffe9f3;line-height:1.6}
+
+
+  .romance-overlay{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(circle at 50% 40%,rgba(255,180,220,.08),transparent 45%);
+  }
+  .kiss{
+    position:fixed;z-index:8;pointer-events:none;
+    font-size:clamp(22px,3vw,38px);
+    filter:drop-shadow(0 0 12px rgba(255,120,190,.45));
+    animation:kissFly linear forwards;
+  }
+  @keyframes kissFly{
+    0%{transform:translate3d(0,20px,0) scale(.55) rotate(-12deg);opacity:0}
+    15%{opacity:1}
+    55%{transform:translate3d(45px,-45vh,0) scale(1.1) rotate(10deg)}
+    100%{transform:translate3d(-55px,-110vh,0) scale(.7) rotate(-8deg);opacity:0}
+  }
+  .kiss-word{
+    display:inline-block;margin-top:14px;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:16px;letter-spacing:2px;color:#ffd2e7;
+    animation:kissPulse 1.8s ease-in-out infinite;
+  }
+  @keyframes kissPulse{0%,100%{transform:scale(1);opacity:.65}50%{transform:scale(1.08);opacity:1}}
+  .final-love{
+    margin-top:28px;
+    font-size:clamp(28px,5vw,52px);
+    background:linear-gradient(90deg,#fff,#ffd1e6,#ff83bb,#fff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:loveGlow 2.2s ease-in-out infinite;
+  }
+  @keyframes loveGlow{
+    0%,100%{filter:drop-shadow(0 0 5px rgba(255,120,190,.15))}
+    50%{filter:drop-shadow(0 0 22px rgba(255,120,190,.6))}
+  }
+
+
+  #lockScreen{
+    position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+    padding:22px;background:
+      radial-gradient(circle at 20% 20%,rgba(255,180,220,.18),transparent 30%),
+      linear-gradient(135deg,rgba(10,4,18,.98),rgba(54,12,48,.98));
+    backdrop-filter:blur(18px);
+  }
+  .lock-card{
+    width:min(460px,100%);text-align:center;padding:42px 28px;border-radius:30px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,220,235,.2);
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
+  }
+  .lock-icon{font-size:55px;margin-bottom:10px;animation:lockPulse 2s ease-in-out infinite}
+  @keyframes lockPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+  .lock-card h2{font-size:clamp(30px,7vw,48px);margin:8px 0;color:#ffe1ee}
+  .lock-card p{color:#ffd8e8;line-height:1.6}
+  #passwordInput{
+    width:100%;padding:15px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.2);
+    background:rgba(0,0,0,.22);color:#fff;font-size:18px;text-align:center;outline:none;
+  }
+  #passwordInput:focus{border-color:#ff9dca;box-shadow:0 0 0 3px rgba(255,120,190,.12)}
+  #unlockBtn{width:100%;margin-top:14px}
+  #wrongPassword{min-height:22px;color:#ffb0cf;margin-top:12px;font-size:14px}
+  body.locked{overflow:hidden}
+
+  @media(max-width:750px){
+    .gallery { grid-template-columns:1fr; }
+    .photo, .photo:nth-child(n) { grid-column:span 1; min-height:420px; }
+    .quote-grid { grid-template-columns:1fr; }
+    .message { padding:26px 22px; }
+    #playerWrap { width:250px; }
+    #player { height:140px; }
+  }
+</style>
+</head>
+<body class="locked">
+
+<div id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-icon">🔐💗</div>
+    <div class="small">A Private Birthday Surprise</div>
+    <h2>For My Kuchuu Puchuuu</h2>
+    <p>This little surprise is only for you.<br>Enter your special password to unlock it. 🌸</p>
+    <input id="passwordInput" type="password" placeholder="Enter your password" autocomplete="off">
+    <button id="unlockBtn" onclick="unlockSite()">Unlock My Surprise 💕</button>
+    <div id="wrongPassword"></div>
+  </div>
+</div>
+
+<div class="garden-glow"></div><div class="romance-overlay"></div><div class="moon"></div>
+<div class="sparkle" style="left:12%;top:18%;font-size:22px">✦</div>
+<div class="sparkle" style="left:78%;top:28%;font-size:16px;animation-delay:.7s">✧</div>
+<div class="sparkle" style="left:88%;top:68%;font-size:25px;animation-delay:1.1s">✦</div>
+<div class="sparkle" style="left:8%;top:76%;font-size:15px;animation-delay:1.6s">✧</div>
+
+<div class="screen">
+  <div class="hero">
+    <div class="flower-corner flower-left">🌸</div><div class="flower-corner flower-right">🌷</div>
+    <div class="small">A little surprise, made with love</div>
+    <h1>Happy Birthday<br>My Kuchuu Puchuuu ❤️</h1>
+    <div class="subtitle">To the girl who makes my world a little more beautiful.</div>
+    <div class="date">16 • SEPTEMBER • YOUR SPECIAL DAY</div><div class="kiss-word">💋 a little kiss for the birthday girl 💋</div>
+    <button onclick="startSurprise()">Open Your Surprise 🎁</button>
+  </div>
+</div>
+
+<section id="letter">
+  <div class="wrap">
+    <h2 class="section-title">For My Kuchuu Puchuuu 💌</h2>
+    <p class="section-lead">Some people enter your life and somehow make ordinary days feel special. You are one of those people.</p>
+    <div class="message">
+      <p>Happy Birthday to the most precious person in my little world. ❤️</p>
+      <p>Today is your day, but honestly, I feel lucky every day that I get to know someone as beautiful, caring and special as you.</p>
+      <p>I hope this new year of your life brings you endless reasons to smile, dreams that come true, peaceful moments, crazy adventures and all the happiness your heart can hold.</p>
+      <p>And whenever life gets difficult, I hope you remember that you are stronger than you think, more special than you realise, and loved more than words can explain.</p>
+      <p>Keep smiling that beautiful smile, keep being the amazing person you are, and never forget how much you mean to me.</p>
+      <p><strong>Happy Birthday, My Kuchuu Puchuuu. 🎂💕</strong></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section-title">A Few Little Things I Love About You ✨</h2>
+    <p class="section-lead">If I started listing everything, this page would never end...</p>
+    <div class="quote-grid">
+      <div class="quote">“Your smile can turn an ordinary moment into my favourite memory.”</div>
+      <div class="quote">“You are not just beautiful; you make the world around you feel beautiful.”</div>
+      <div class="quote">“If happiness had a face, I think it would look a little like you.”</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section-title">My Wishes For You 🌸</h2>
+    <p class="section-lead">Three wishes I would choose for you, if I could wrap them up as a birthday gift.</p>
+    <div class="timeline">
+      <div>🌼 <strong>More smiles:</strong> May you always have a reason to smile, even on the days that don't go as planned.</div>
+      <div>🌙 <strong>Beautiful dreams:</strong> May you chase every dream fearlessly and wake up proud of how far you've come.</div>
+      <div>💖 <strong>Endless happiness:</strong> May the coming year bring you moments you'll remember forever.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Beautiful You 📸</h2>
+    <p class="section-lead">Six little snapshots of the person who makes this website worth making. ❤️</p>
+    <div class="gallery">
+      <div class="photo"><img src="photo1.jpg" alt="My Kuchuu Puchuuu"></div>
+      <div class="photo"><img src="photo2.jpg" alt="My Kuchuu Puchuuu"></div>
+      <div class="photo"><img src="photo3.png" alt="My Kuchuu Puchuuu"></div>
+      <div class="photo"><img src="photo4.png" alt="My Kuchuu Puchuuu"></div>
+      <div class="photo"><img src="photo5.png" alt="My Kuchuu Puchuuu"></div>
+      <div class="photo"><img src="photo6.png" alt="My Kuchuu Puchuuu"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="surprise">
+      <div class="small">One last thing...</div>
+      <h2 class="section-title" style="margin-top:15px;">I Have A Secret For You 💖</h2>
+      <button onclick="reveal()">Tap To Reveal 💌</button>
+      <div id="secret" class="secret">
+        <p>
+          No birthday wish is big enough to describe what I wish for you.
+          I just want you to keep smiling, keep chasing your dreams, and keep being exactly who you are.
+          May every September 16th remind you how wonderfully special you are.
+        </p>
+        <div class="final-love">I love you My Baby ❤️💋</div>
+        <p><strong>Happy Birthday once again, My Kuchuu Puchuuu.<br>Always keep that beautiful smile. 🌸</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with ❤️ especially for <strong>My Kuchuu Puchuuu</strong><br>
+  16 September 🎂
+</footer>
+
+<div id="playerWrap">
+  <div class="music-label">🎵 Your Birthday Song <span class="music-note">♥</span></div>
+  <div id="player"></div>
+</div>
+
+<script>
+  let player;
+  let apiReady = false;
+
+  function loadYouTubeAPI() {
+    if (window.YT && YT.Player) {
+      apiReady = true;
+      createPlayer();
+      return;
+    }
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+  }
+
+  window.onYouTubeIframeAPIReady = function() {
+    apiReady = true;
+    createPlayer();
+  };
+
+  function createPlayer() {
+    if (player) return;
+    player = new YT.Player('player', {
+      videoId: '8TnCuvYh_Aw',
+      playerVars: {
+        autoplay: 0,
+        controls: 1,
+        rel: 0,
+        modestbranding: 1,
+        playsinline: 1
+      },
+      events: {
+        onReady: function() {}
+      }
+    });
+  }
+
+  function startSurprise() {
+    document.getElementById('letter').scrollIntoView({behavior:'smooth'});
+    if (!apiReady) loadYouTubeAPI();
+    setTimeout(() => {
+      if (player && player.playVideo) player.playVideo();
+    }, 800);
+    burstHearts(20);
+  }
+
+  function reveal() {
+    document.getElementById('secret').classList.add('open');
+    burstHearts(35);
+    kissBurst();
+  }
+
+  function burstHearts(count) {
+    for (let i=0; i<count; i++) {
+      setTimeout(() => {
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.textContent = ['♥','♡','❤','💗','💖'][Math.floor(Math.random()*5)];
+        h.style.left = Math.random()*100 + 'vw';
+        h.style.fontSize = (14 + Math.random()*24) + 'px';
+        h.style.animationDuration = (4 + Math.random()*5) + 's';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 10000);
+      }, i*90);
+    }
+  }
+
+  // Preload the YouTube player so it is ready when the surprise button is tapped.
+  loadYouTubeAPI();
+
+  function createPetal(){
+    const p=document.createElement('div');p.className='petal';
+    p.style.left=Math.random()*100+'vw';
+    p.style.animationDuration=(7+Math.random()*8)+'s';
+    document.body.appendChild(p);setTimeout(()=>p.remove(),18000);
+  }
+  setInterval(createPetal,700);
+  for(let i=0;i<10;i++)setTimeout(createPetal,i*300);
+
+
+  function createKiss(){
+    const k=document.createElement('div');
+    k.className='kiss';
+    k.textContent=['💋','💋','😘','💕'][Math.floor(Math.random()*4)];
+    k.style.left=(5+Math.random()*90)+'vw';
+    k.style.bottom=(-30-Math.random()*30)+'px';
+    k.style.animationDuration=(5+Math.random()*5)+'s';
+    document.body.appendChild(k);
+    setTimeout(()=>k.remove(),11000);
+  }
+  setInterval(createKiss,1100);
+  function kissBurst(){
+    for(let i=0;i<28;i++) setTimeout(createKiss,i*70);
+  }
+
+
+  // Change this password to anything you like.
+  const birthdayPassword = "KuchuuPuchuuu";
+
+  function unlockSite(){
+    const input = document.getElementById('passwordInput');
+    const wrong = document.getElementById('wrongPassword');
+
+    if(input.value === birthdayPassword){
+      document.getElementById('lockScreen').style.display='none';
+      document.body.classList.remove('locked');
+      burstHearts(20);
+      if(typeof kissBurst === 'function') kissBurst();
+
+      if(!apiReady) loadYouTubeAPI();
+      setTimeout(()=>{
+        if(player && player.playVideo) player.playVideo();
+      },700);
+    } else {
+      wrong.textContent = "That's not the secret password, My Kuchuu Puchuuu 💕";
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  document.getElementById('passwordInput').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') unlockSite();
+  });
+
+</script>
+</body>
+</html>
